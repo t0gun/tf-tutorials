@@ -18,9 +18,9 @@ resource "docker_image" "nginx" {
 # -> same as 'docker run --name nginx -p8080:80 -d nginx:latest'
 resource "docker_container" "nginx" {
   image = docker_image.nginx.image_id
-  name  = "tutorial"
+  name  = var.container_name
   ports {
     internal = 80
-    external = 8000
+    external = 8080
   }
 }
